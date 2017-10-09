@@ -1,6 +1,6 @@
 {
   "name": "yarn-recursive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursively run `yarn` in the current folder",
   "main": "yarn-recursive.js",
   "scripts": {
@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/nrigaudiere/yarn-recursive.git"
   },
+  "bin": {
+    "yarn-recursive": "yarn-recursive.js"
+  }
   "keywords": [
     "yarn",
     "recursive",
