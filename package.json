@@ -12,7 +12,7 @@
   },
   "bin": {
     "yarn-recursive": "yarn-recursive.js"
-  }
+  },
   "keywords": [
     "yarn",
     "recursive",
