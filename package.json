@@ -1,0 +1,24 @@
+{
+  "name": "yarn-recursive",
+  "version": "1.0.0",
+  "description": "Recursively run `yarn` in the current folder",
+  "main": "yarn-recursive.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrigaudiere/yarn-recursive.git"
+  },
+  "keywords": [
+    "yarn",
+    "recursive",
+    "install"
+  ],
+  "author": "Nicolas Rigaudière",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nrigaudiere/yarn-recursive/issues"
+  },
+  "homepage": "https://github.com/nrigaudiere/yarn-recursive#readme"
+}
