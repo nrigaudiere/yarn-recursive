@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/nrigaudiere/yarn-recursive#readme",
   "dependencies": {
+    "cli-color": "^1.2.0",
     "shelljs": "^0.7.8",
     "yargs": "^9.0.1"
   }
