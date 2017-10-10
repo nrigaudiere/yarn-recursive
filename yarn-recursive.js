@@ -12,7 +12,12 @@ function packageJsonLocations(dirname) {
 }
 
 function yarn(directoryName) {
-  let result = shell.exec('yarn');
+  let command = 'yarn';
+
+  if (argv.cmd)
+    command += ' ' + argv.cmd;
+
+  let result = shell.exec(command);
   shell.cd(directoryName);
   
   console.log(clc.blueBright('Current yarn path: ' + directoryName + '/package.json...'));
@@ -40,7 +45,5 @@ if (require.main === module) {
 }
 
 module.exports = {
-  packageJsonLocations: packageJsonLocations,
-  yarn: yarn,
-  filterRoot: filterRoot
+  yarn: yarn
 };
