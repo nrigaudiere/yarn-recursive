@@ -18,3 +18,7 @@ Current yarn path: YOUR_PATH/yarn-recursive/package.json...
 End of yarns
 
 ```
+
+```
+$ yarn-recursive --cmd upgrade --opt <package-name>
+```

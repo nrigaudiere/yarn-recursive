@@ -16,10 +16,14 @@ function yarn(directoryName) {
 
   if (argv.cmd)
     command += ' ' + argv.cmd;
+  let command = 'yarn';
+
+  if (argv.opt)
+    command += ' ' + argv.opt;
 
   let result = shell.exec(command);
   shell.cd(directoryName);
-  
+
   console.log(clc.blueBright('Current yarn path: ' + directoryName + '/package.json...'));
 
   return {
@@ -39,7 +43,7 @@ if (require.main === module) {
     .filter(argv.skipRoot ? filterRoot : filtered => filtered)
     .map(yarn)
     .reduce((code, result) =>result.exitCode > code ? result.exitCode : code, 0);
-  
+
   console.log(clc.green.bold('End of yarns'));
   process.exit(exitCode);
 }
