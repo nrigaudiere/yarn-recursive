@@ -16,7 +16,6 @@ function yarn(directoryName) {
 
   if (argv.cmd)
     command += ' ' + argv.cmd;
-  let command = 'yarn';
 
   if (argv.opt)
     command += ' ' + argv.opt;
