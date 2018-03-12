@@ -20,10 +20,10 @@ function yarn(directoryName) {
   if (argv.opt)
     command += ' ' + argv.opt;
 
-  let result = shell.exec(command);
-  shell.cd(directoryName);
-
   console.log(clc.blueBright('Current yarn path: ' + directoryName + '/package.json...'));
+ 
+  shell.cd(directoryName);  
+  let result = shell.exec(command);
 
   return {
     directoryName: directoryName,
