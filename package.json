@@ -1,6 +1,6 @@
 {
   "name": "yarn-recursive",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Recursively run `yarn` in the current folder",
   "main": "yarn-recursive.js",
   "scripts": {
