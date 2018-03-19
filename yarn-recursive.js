@@ -43,7 +43,7 @@ if (require.main === module) {
     .map(yarn)
     .reduce((code, result) =>result.exitCode > code ? result.exitCode : code, 0);
 
-  console.log(clc.green.bold('End of yarns'));
+  console.log(clc.green('End of yarns'));
   process.exit(exitCode);
 }
 
