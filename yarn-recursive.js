@@ -20,10 +20,10 @@ function yarn(directoryName) {
   if (argv.opt)
     command += ' ' + argv.opt;
 
-  let result = shell.exec(command);
-  shell.cd(directoryName);
-
   console.log(clc.blueBright('Current yarn path: ' + directoryName + '/package.json...'));
+ 
+  shell.cd(directoryName);  
+  let result = shell.exec(command);
 
   return {
     directoryName: directoryName,
@@ -43,7 +43,7 @@ if (require.main === module) {
     .map(yarn)
     .reduce((code, result) =>result.exitCode > code ? result.exitCode : code, 0);
 
-  console.log(clc.green.bold('End of yarns'));
+  console.log(clc.green('End of yarns'));
   process.exit(exitCode);
 }
 
