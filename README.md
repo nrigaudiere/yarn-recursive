@@ -22,3 +22,14 @@ End of yarns
 ```
 $ yarn-recursive --cmd upgrade --opt <package-name>
 ```
+
+### Skip root
+
+If you want to skip the root directory of your project, add the `--skipRoot` option:
+
+```
+$ yarn-recursive --skipRoot --cmd test
+```
+
+This is useful if, for example, you want to run yarn-recursive from a script in your root
+package.json, which would otherwise cause infinite recursion.
