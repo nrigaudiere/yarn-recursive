@@ -32,8 +32,6 @@ function yarn(directoryName) {
 }
 
 function filterRoot(directoryName) {
-  console.log('Root filtering');
-
   return path.normalize(directoryName) !== path.normalize(process.cwd());
 }
 
