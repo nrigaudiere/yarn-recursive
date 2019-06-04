@@ -19,7 +19,7 @@
     "install"
   ],
   "author": "Nicolas Rigaudière",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nrigaudiere/yarn-recursive/issues"
   },
