@@ -22,7 +22,7 @@ function yarn(directoryName) {
 
   console.log(clc.blueBright('Current yarn path: ' + directoryName + path.sep + 'package.json...'));
  
-  shell.cd(directoryName);  
+  shell.cd(directoryName);
   let result = shell.exec(command);
 
   return {
@@ -32,9 +32,7 @@ function yarn(directoryName) {
 }
 
 function filterRoot(directoryName) {
-  console.log('Root filtering');
-
-  return path.normalize(directoryName) === path.normalize(process.cwd());
+  return path.normalize(directoryName) !== path.normalize(process.cwd());
 }
 
 if (require.main === module) {
