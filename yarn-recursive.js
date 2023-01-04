@@ -2,7 +2,7 @@
 
 const path = require('path');
 const shell = require('shelljs');
-const argv = require('yargs').argv;
+const yargs = require('yargs');
 const clc = require('cli-color');
 
 function packageJsonLocations(dirname) {
@@ -14,11 +14,14 @@ function packageJsonLocations(dirname) {
 function yarn(directoryName) {
   let command = 'yarn';
 
-  if (argv.cmd)
-    command += ' ' + argv.cmd;
+  if (yargs.argv.cmd)
+    command += ' ' + yargs.argv.cmd;
 
-  if (argv.opt)
-    command += ' ' + argv.opt;
+  if (yargs.argv.opt) {
+    const index = process.argv.indexOf('--opt');
+    command += ' ' + process.argv.slice(index + 1).join(' ');
+  }
+    
 
   console.log(clc.blueBright('Current yarn path: ' + directoryName + path.sep + 'package.json...'));
  
@@ -37,7 +40,7 @@ function filterRoot(directoryName) {
 
 if (require.main === module) {
   let exitCode = packageJsonLocations(process.cwd())
-    .filter(argv.skipRoot ? filterRoot : filtered => filtered)
+    .filter(yargs.argv.skipRoot ? filterRoot : filtered => filtered)
     .map(yarn)
     .reduce((code, result) =>result.exitCode > code ? result.exitCode : code, 0);
 
