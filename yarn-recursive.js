@@ -44,7 +44,3 @@ if (require.main === module) {
   console.log(clc.green('End of yarns'));
   process.exit(exitCode);
 }
-
-module.exports = {
-  yarn: yarn
-};
