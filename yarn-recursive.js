@@ -1,14 +1,29 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
 const argv = require('yargs').argv;
 const clc = require('cli-color');
 
 function packageJsonLocations(dirname) {
-  return shell.find(dirname)
-    .filter(fname => !(fname.indexOf('node_modules') > -1 || fname[0] === '.') && path.basename(fname) === 'package.json')
-    .map(fname => path.dirname(fname));
+  const filenames = fs.readdirSync(dirname)
+      .filter(filename => filename !== 'node_modules');
+
+  let result = [];
+
+  for (const filename of filenames) {
+    const pathname = path.resolve(dirname, filename);
+    const stat = fs.statSync(pathname);
+
+    if (stat.isFile() && filename === "package.json") {
+      result.push(dirname);
+    } else if (stat.isDirectory()) {
+      result = result.concat(packageJsonLocations(pathname));
+    }
+  }
+
+  return result;
 }
 
 function yarn(directoryName) {
